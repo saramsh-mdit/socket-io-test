@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Socket.io</title>
+    <script src="/socket.io/socket.io.js"></script>
+  </head>
+  <body>
+    <script>
+      // Replace with the actual token you receive from the server
+      const token = "your_jwt_token";
+
+      const socket = io.connect("", {
+        query: { token },
+      });
+
+      socket.on("connect", () => {
+        console.log("Connected to server");
+      });
+
+      socket.on("connect_error", (error) => {
+        console.log("Connection error:", error.message);
+      });
+    </script>
+  </body>
+</html>
